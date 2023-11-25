@@ -1,0 +1,33 @@
+.mainTitle{
+    font-family: 'Lato-Bold';
+    color: white;
+    margin: auto;
+    width: 15%;
+    padding-top: 6vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.secondaryTitle{
+    font-family: 'Lato-Light';
+    color: #B9CBD8;
+    margin-left: 4vw;
+    width: 15%;
+    padding: 3vw;
+    text-align: left;
+    font-size: 2vw;
+}
+
+.trajectory-card {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+.trajectory {
+    background-color: #16537e;
+    padding-bottom: 10vh;
+}

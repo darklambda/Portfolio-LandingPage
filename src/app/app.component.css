@@ -1,37 +1,39 @@
+.app {
+    background-color: #16537e;
+}
+
+.container {
+    background-color: #16537e;
+    height: 90vh;
+}
+
 .mat-toolbar {
+    height: 10vh;
+    background-color: #0f3a58;
+    color: white;
     margin: auto;
     width: 100%;
     padding: 10px;
 }
 
-.centered{
+.centered .centered-left .centered-right{
     margin: auto;
 }
 
-.mainTitle{
-    margin: auto;
-    width: 100%;
-    padding-top: 8vw;
-    padding-bottom: 1vw;
-    text-align: center;
-    font-size: 3vw;
-}
-
-.secondaryTitle{
-    margin: auto;
-    width: 100%;
-    padding-top: 1vw;
-    padding-bottom: 5vw;
-    text-align: center;
-    font-size: 2vw;
-}
-
-@media screen and (max-width: 550px) {
-    .mainTitle {
-        font-size: 7vw !important;
+@media screen and (min-width: 550px) {
+    .centered-left {
+        width: 10%;
+        margin-left: auto !important;
+        margin-right: 1vw !important
+    }
+    .centered-right {
+        width: 10%;
+        margin-right: auto !important;
+        margin-left: 1vw !important
     }
 
-    .secondaryTitle {
-        font-size: 4vw !important;
+    .centered {
+        width: 10%;
+        margin: 1vw !important
     }
 }

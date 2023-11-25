@@ -4,7 +4,17 @@
     margin-top: 5vw;
     margin-left: auto;
     margin-right: auto;
+}
 
+.mainTitle{
+    font-family: 'Lato-Bold';
+    color: white;
+    margin: auto;
+    width: 100%;
+    padding-top: 6vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    font-size: 3vw;
 }
 
 .goto {

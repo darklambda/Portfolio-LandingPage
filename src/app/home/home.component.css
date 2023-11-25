@@ -1,0 +1,35 @@
+.name {
+    background-color: #16537e;
+}
+
+.mainTitle{
+    font-family: 'Lato-Bold';
+    color: white;
+    margin: auto;
+    width: 100%;
+    padding-top: 6vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.secondaryTitle{
+    font-family: 'Lato-Light';
+    color: #B9CBD8;
+    margin: auto;
+    width: 100%;
+    padding-top: 1vw;
+    padding-bottom: 5vw;
+    text-align: center;
+    font-size: 2vw;
+}
+
+@media screen and (max-width: 550px) {
+    .mainTitle {
+        font-size: 7vw !important;
+    }
+
+    .secondaryTitle {
+        font-size: 4vw !important;
+    }
+}

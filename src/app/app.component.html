@@ -1,22 +1,19 @@
 <div id="app">
-  <h1 class="mainTitle">Gonzalo A. Oberreuter Álvarez</h1>
-
-  <h2 class="secondaryTitle">Informatics Engineer</h2>
-
 
   <mat-toolbar>
 
-    <button class="centered" mat-button routerLink="/">Home</button>
+  <button class="centered-left" mat-button routerLink="/">Home</button>
 
-    <button class="centered" mat-button routerLink="/projects">Projects</button>
+  <button class="centered" mat-button routerLink="/projects">Projects</button>
 
-    <button class="centered" mat-button routerLink="/trajectory">Trajectory</button>
+  <button class="centered" mat-button routerLink="/trajectory">Trajectory</button>
 
-    <button class="centered" mat-button routerLink="/about">About Me</button>
+  <button class="centered" mat-button routerLink="/about">About Me</button>
 
-  </mat-toolbar>
-  
+</mat-toolbar>
+
+
     <div class="container">
       <router-outlet></router-outlet>
     </div>
-  </div>
+</div>

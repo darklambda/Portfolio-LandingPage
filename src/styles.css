@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('/assets/Fonts/Lato/Lato-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('/assets/Fonts/Lato/Lato-Light.ttf');
+}
