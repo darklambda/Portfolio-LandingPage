@@ -16,7 +16,7 @@ jobs:
         username: ${{secrets.SSHH_USERNAME}}
 
         script: |
-          mkdir /var/www/tmp
+          mkdir /var/www/tmp 
           cd /var/www/tmp
           git clone git@github.com:darklambda/Portfolio-LandingPage.git
           npm install
