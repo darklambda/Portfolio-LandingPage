@@ -7,7 +7,7 @@ on:
 env:
   SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
   SSH_KNOWN_HOSTS: ${{secrets.SSH_HOST}}
-  
+
 
 jobs:
   before_deploy:
@@ -15,17 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Preparing SSH connection pt1
-      run: |
-        apt-get update -y && apt-get install rsync make -y
-        eval $(ssh-agent -s)
-        echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-        mkdir -p ~/.ssh
-        chmod 700 ~/.ssh
-        echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-        chmod 644 ~/.ssh/known_hosts
-        echo "Host *" >> ~/.ssh/config
-        echo "    StrictHostKeyChecking no" >> ~/.ssh/config
-        chmod 400 ~/.ssh/config
+      run: eval $(ssh-agent -s)
+    - run: echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - run: mkdir -p ~/.ssh
+    - run: chmod 700 ~/.ssh
+    - run: echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+    - run: chmod 644 ~/.ssh/known_hosts
+    - run: echo "Host *" >> ~/.ssh/config
+    - run: echo "    StrictHostKeyChecking no" >> ~/.ssh/config
+    - run: chmod 400 ~/.ssh/config
   deploy:
     name: Deploy
     needs: before_deploy
