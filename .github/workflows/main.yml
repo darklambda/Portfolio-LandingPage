@@ -16,9 +16,10 @@ jobs:
     steps:
     - name: Preparing SSH connection pt1
       run: eval `ssh-agent -s`
-    - run: echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - run: mkdir -p ~/.ssh
     - run: chmod 700 ~/.ssh
+    - run: echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - run: ssh-add ~/.ssh/id_rsa
     - run: echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
     - run: chmod 644 ~/.ssh/known_hosts
     - run: echo "Host *" >> ~/.ssh/config
