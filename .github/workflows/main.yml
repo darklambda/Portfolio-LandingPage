@@ -1,18 +1,32 @@
-name: remote ssh command
-on: [push]
-jobs:
+name: Build & Deploy
 
-  build:
-    name: Build
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using ssh key
+    - name: Deploy Angular App
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.PORT }}
-        script: whoami
+        host: ${{secrets.SSH_HOST}}
+        key: ${{secrets.SSH_KEY}}
+        username: ${{secrets.SSHH_USERNAME}}
+        passphase: ${{secrets.SSH_PASSPHRASE}}
+
+        script: |
+          mkdir /var/www/tmp
+          cd /var/www/tmp
+          git clone git@github.com:darklambda/Portfolio-LandingPage.git
+          npm install
+          ng build
+          mv dist/landing-page/ dist/gonzalo-oberreuter.de
+          rm -rf ../gonzalo-oberreuter.de
+          mv dist/gonzalo-oberreuter.de ../gonzalo-oberreuter.de
+          cd ..
+          rm -rf tmp
+          echo 'Deployment Successfull'
         
           
