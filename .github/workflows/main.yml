@@ -9,18 +9,15 @@ jobs:
     name: Before Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Preparing SSH connection
-      run: |
-        echo "Before Deployment"
-        pwd
-        ls 
+    - name: Preparing SSH connection pt1
+      run: ls
+    - name: Preparing SSH connection pt2
+      run: pwd
   deploy:
     name: Deploy
     needs: before_deploy
     runs-on: ubuntu-latest
     steps:
     - name: Building Website
-      run: |
-        echo "Mid Deployment"
         
           
