@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Preparing SSH connection pt1
-      run: eval `ssh-agent -s`
+      run: ssh-agent /bin/sh
     - run: mkdir -p ~/.ssh
     - run: chmod 700 ~/.ssh
     - run: echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
