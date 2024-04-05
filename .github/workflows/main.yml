@@ -14,7 +14,6 @@ jobs:
         host: ${{secrets.SSH_HOST}}
         key: ${{secrets.SSH_KEY}}
         username: ${{secrets.SSHH_USERNAME}}
-        passphrase: ${{secrets.SSH_PASSPHRASE}}
 
         script: |
           mkdir /var/www/tmp
