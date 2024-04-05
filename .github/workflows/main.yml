@@ -16,6 +16,7 @@ jobs:
     steps:
     - name: Preparing SSH connection pt1
       run: ssh-agent /bin/sh
+    - run: echo $SSH_AUTH_SOCK
     - run: mkdir -p ~/.ssh
     - run: chmod 700 ~/.ssh
     - run: echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
