@@ -1,39 +1,45 @@
-.app {
-    background-color: #16537e;
-}
-
-.container {
-    background-color: #16537e;
-    height: 90vh;
-}
-
 .mat-toolbar {
     height: 10vh;
     background-color: #0f3a58;
     color: white;
-    margin: auto;
-    width: 100%;
-    padding: 10px;
+    width: 100vw;
 }
 
-.centered .centered-left .centered-right{
-    margin: auto;
+
+.centered-left {
+    font-size: 4vw;
+    width: 20vw;
+    margin-left: auto !important;
+    margin-right: 1vw !important
+}
+.centered-right {
+    font-size: 4vw;
+    width: 20vw;
+    margin-right: auto !important;
+    margin-left: 1vw !important
+}
+.centered {
+    font-size: 4vw;
+    width: 20vw;
+    margin: auto !important
 }
 
-@media screen and (min-width: 550px) {
-    .centered-left {
-        width: 10%;
-        margin-left: auto !important;
-        margin-right: 1vw !important
-    }
-    .centered-right {
-        width: 10%;
-        margin-right: auto !important;
-        margin-left: 1vw !important
+@media screen and (min-width: 600px) {
+    .mat-toolbar {
+        margin: auto;
+        width: 60vw
     }
 
     .centered {
-        width: 10%;
-        margin: 1vw !important
+        font-size: 1.5vw;
     }
+
+    .centered-left {
+        font-size: 1.5vw;
+    }
+
+    .centered-right {
+        font-size: 1.5vw;
+    }
+
 }

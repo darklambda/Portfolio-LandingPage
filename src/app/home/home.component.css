@@ -1,5 +1,24 @@
-.name {
-    background-color: #16537e;
+.classicGrid {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0vw;
+    width: 60vw;
+}
+
+.smallGrid {
+    display: none;
+}
+
+.photoDesktop {
+    border-radius: 10%;
+    width: 100%
+}
+
+.paragraphDesktop {
+    padding: 4vw;
+    font-size: 1vw;
+    color: white;
+    text-align: justify;
 }
 
 .mainTitle{
@@ -24,12 +43,60 @@
     font-size: 2vw;
 }
 
+.secondaryTitleBold{
+    font-family: 'Lato-Bold';
+    color: white;
+    margin: auto;
+    width: 100%;
+    padding-top: 1vw;
+    padding-bottom: 5vw;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.terciaryTitleBold{
+    
+    font-family: 'Lato-Bold';
+    color: white;
+    margin: auto;
+    width: 100%;
+    padding-top: 1vw;
+    padding-bottom: 5vw;
+    text-align: center;
+    font-size: 1vw;
+}
+
+.tileTitle {
+    text-align: center;
+}
+
 @media screen and (max-width: 550px) {
     .mainTitle {
         font-size: 7vw !important;
     }
 
     .secondaryTitle {
-        font-size: 4vw !important;
+        font-size: 7vw !important;
+    }
+    .classicGrid {
+        display: none !important;
+    }
+
+    .smallGrid {
+        display: block;
+    }
+
+    .paragraphSmartphone {
+        padding: 4vw;
+        font-size: 5vw;
+        color: white;
+        text-align: justify;
+    }
+
+    .photoSmartphone {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        border-radius: 10%;
+        width: 90vw
     }
 }

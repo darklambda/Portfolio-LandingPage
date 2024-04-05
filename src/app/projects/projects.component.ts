@@ -12,12 +12,12 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ProjectsComponent {
 
-toDemo(): void {
-  window.location.href = "http://oma.gonzalo-oberreuter.de"
-}
+  toDemo(): void {
+    window.location.href = "http://oma.gonzalo-oberreuter.de"
+  }
 
-toRepo(): void {
-  window.location.href = "https://github.com/darklambda/OMA"
-}
+  toRepo(): void {
+    window.location.href = "https://github.com/darklambda/OMA"
+  }
 
 }

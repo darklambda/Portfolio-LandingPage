@@ -2,18 +2,14 @@
 
   <mat-toolbar>
 
-  <button class="centered-left" mat-button routerLink="/">Home</button>
+    <button class="centered-left" mat-button routerLink="/">Home</button>
+    <button class="centered" mat-button routerLink="/projects">Projects</button>
+    <button class="centered-right" mat-button routerLink="/trajectory">Trajectory</button>
 
-  <button class="centered" mat-button routerLink="/projects">Projects</button>
+  </mat-toolbar>
 
-  <button class="centered" mat-button routerLink="/trajectory">Trajectory</button>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 
-  <button class="centered" mat-button routerLink="/about">About Me</button>
-
-</mat-toolbar>
-
-
-    <div class="container">
-      <router-outlet></router-outlet>
-    </div>
 </div>

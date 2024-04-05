@@ -15,5 +15,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'landingPage';
+
+  title = 'Home';
 }

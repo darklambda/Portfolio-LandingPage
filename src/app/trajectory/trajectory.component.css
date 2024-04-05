@@ -1,4 +1,5 @@
 .mainTitle{
+    display: none;
     font-family: 'Lato-Bold';
     color: white;
     margin: auto;
@@ -10,24 +11,61 @@
 }
 
 .secondaryTitle{
-    font-family: 'Lato-Light';
-    color: #B9CBD8;
-    margin-left: 4vw;
-    width: 15%;
-    padding: 3vw;
-    text-align: left;
-    font-size: 2vw;
+    font-family: 'Lato-Bold';
+    color: white;
+    margin: auto;
+    padding-top: 6vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    font-size: 3vw;
 }
 
 .trajectory-card {
-    width: 90vw;
+    max-width: 50%;
+    padding: auto;
+    margin-top: 5vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vw;
     margin-bottom: 2vw;
 }
 
-.trajectory {
-    background-color: #16537e;
-    padding-bottom: 10vh;
+.matCardContent {
+    overflow-y: hidden;
+}
+
+.listItem {
+    font-size: 1vw;
+}
+
+.subTitle {
+    margin-bottom: 2vw;
+}
+
+.subTitle2 {
+    margin-bottom: 1vw;
+}
+
+.mat-icon {
+    font-size: 1vw;
+    vertical-align: text-bottom;
+}
+
+@media screen and (max-width: 550px) {
+    .trajectory-card {
+        max-width: 100% !important;
+    }
+
+    .secondaryTitle {
+        font-size: 7vw !important;
+    }
+
+    .listItem {
+        vertical-align: middle;
+        font-size: 4vw;
+    }
+    
+    .mat-icon {
+        font-size: 4vw;
+        vertical-align: text-bottom;
+    }
 }

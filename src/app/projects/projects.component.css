@@ -20,6 +20,11 @@
 .goto {
     margin: auto
 }
+
+.paragraph {
+    font-size: 1vw;
+    text-align: justify;
+}
   
 .example-header-image {
 background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -29,5 +34,13 @@ background-size: cover;
 @media screen and (max-width: 550px) {
     .project-card {
         max-width: 100% !important;
+    }
+
+    .mainTitle {
+        font-size: 7vw !important;
+    }
+
+    .paragraph {
+        font-size: 4vw;
     }
 }
