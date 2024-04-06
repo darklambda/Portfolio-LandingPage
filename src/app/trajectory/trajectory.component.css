@@ -26,29 +26,45 @@
     margin-top: 5vw;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2vw;
+    margin-bottom: 2vh;
+}
+
+.listItem {
+    margin-bottom: 2vh;
+}
+
+.icon {
+    display: table-cell;
+    vertical-align: top;
+}
+
+i.fa.fa-check-circle {
+    color:#000;
+    font-size:80px;
+    float:left;
+    display:block;
+    text-align:center;
+}
+
+.listText {
+    display: table-cell;
+    vertical-align: top;
+    font-size:2vh;
+    line-height:1.43em;
 }
 
 .matCardContent {
     overflow-y: hidden;
 }
 
-.listItem {
-    font-size: 1vw;
-}
-
 .subTitle {
-    margin-bottom: 2vw;
+    margin-bottom: 2vh;
 }
 
 .subTitle2 {
-    margin-bottom: 1vw;
+    margin-bottom: 1vh;
 }
 
-.mat-icon {
-    font-size: 1vw;
-    vertical-align: text-bottom;
-}
 
 @media screen and (max-width: 550px) {
     .trajectory-card {
@@ -56,16 +72,11 @@
     }
 
     .secondaryTitle {
-        font-size: 7vw !important;
+        font-size: 7vh !important;
     }
 
-    .listItem {
+    .listText {
         vertical-align: middle;
         font-size: 4vw;
-    }
-    
-    .mat-icon {
-        font-size: 4vw;
-        vertical-align: text-bottom;
     }
 }
