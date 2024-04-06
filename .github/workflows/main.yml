@@ -35,10 +35,9 @@ jobs:
     - name: SSH Connection and Replacement
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
         script: | 
           rm -rf ${{secrets.DEPLOY_PATH}}
           mv ${{secrets.SFTP_REMOTE}} ${{secrets.DEPLOY_PATH}}
