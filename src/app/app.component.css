@@ -1,8 +1,15 @@
 .container {
     margin-top: 10vh;
     margin-left: auto;
-    margin-bottom: auto;
     margin-right: auto;
+    min-height: 80vh;
+    height: auto;
+}
+
+.footer {
+    background-color: #0f3a58;
+    height: 10vh;
+    width: 100vw;
 }
 
 .mat-toolbar {
@@ -34,6 +41,18 @@
     font-size: 4vw;
     width: 20vw;
     margin: auto !important
+}
+
+.social {
+    text-align: center;
+    color: white;
+}
+
+.fa{
+    cursor: pointer;
+    margin-top: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
 
 @media screen and (min-width: 600px) {

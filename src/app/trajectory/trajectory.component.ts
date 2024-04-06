@@ -4,7 +4,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 
-
 @Component({
   selector: 'app-trajectory',
   standalone: true,
@@ -12,7 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './trajectory.component.html',
   styleUrl: './trajectory.component.css'
 })
-export class TrajectoryComponent {
+export class TrajectoryComponent { 
+
   events = [];
   
 }
