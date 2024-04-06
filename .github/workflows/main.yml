@@ -4,34 +4,17 @@ on:
   push:
     branches: [master]
 
-env:
-  SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
-  SSH_KNOWN_HOSTS: ${{secrets.SSH_HOST}}
-
 
 jobs:
-  before_deploy:
+  ssh_connection:
     name: Before Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Preparing SSH connection pt1
-      run: ssh-agent /bin/sh
-    - run: echo $SSH_AUTH_SOCK
-    - run: mkdir -p ~/.ssh
-    - run: chmod 700 ~/.ssh
-    - run: echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
-    - run: ssh-add ~/.ssh/id_rsa
-    - run: echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
-    - run: chmod 644 ~/.ssh/known_hosts
-    - run: echo "Host *" >> ~/.ssh/config
-    - run: echo "    StrictHostKeyChecking no" >> ~/.ssh/config
-    - run: chmod 400 ~/.ssh/config
-  deploy:
-    name: Deploy
-    needs: before_deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: Building Website
-      run: echo "Website"
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2.5.1
+        with:
+          token: ${{ secrets.DO_ACCESS }}
+      - name: List droplets
+        run: doctl compute droplet list
         
           
