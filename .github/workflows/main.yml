@@ -1,21 +1,15 @@
-name: Build & Deploy
-
-on:
-  push:
-    branches: [master]
-
-
+name: remote ssh command
+on: [push]
 jobs:
-  ssh_connection:
-    name: Before Deploy
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2.5.1
-        with:
-          token: ${{ secrets.DO_ACCESS }}
-      - name: Access droplet and Run Build
-        run: | 
-          doctl compute ssh ${{ secrets.DO_ID }}
-        
-          
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: whoami
