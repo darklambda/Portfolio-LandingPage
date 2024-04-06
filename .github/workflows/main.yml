@@ -17,6 +17,5 @@ jobs:
       - name: Access droplet and Run Build
         run: | 
           doctl compute ssh ${{ secrets.DO_ID }}
-          doctl compute ssh --ssh-command ${{secrets.DO_COMMAND}}
         
           
