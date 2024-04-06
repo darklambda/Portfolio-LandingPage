@@ -23,10 +23,10 @@
 .trajectory-card {
     max-width: 50%;
     padding: auto;
-    margin-top: 5vw;
+    margin-top: 5vh;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2vh;
+    margin-bottom: 5vh; 
 }
 
 .listItem {
@@ -72,7 +72,7 @@ i.fa.fa-check-circle {
     }
 
     .secondaryTitle {
-        font-size: 7vh !important;
+        font-size: 7vw !important;
     }
 
     .listText {
