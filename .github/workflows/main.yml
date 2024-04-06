@@ -38,9 +38,10 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
-        script: | 
+        script: |
+          pwd
           rm -rf ${{secrets.DEPLOY_PATH}}
-          mv ${{secrets.SFTP_REMOTE}} ${{secrets.DEPLOY_PATH}}
+          mv ${{secrets.SSH_ARTIFACT_FOLDER}} ${{secrets.DEPLOY_PATH}}
 
 
     
