@@ -1,11 +1,11 @@
-name: Build Deployment
+name: Build  & Deploy
 on:
   push:
     branches: master
 jobs:
 
   build:
-    name: Build and Deploy 
+    name: Build and Send 
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -27,5 +27,21 @@ jobs:
           local_path: '${{secrets.SFTP_LOCAL}}'
           remote_path: '${{secrets.SFTP_REMOTE}}'
           sftpArgs: '-o ConnectTimeout=5'
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: SSH Connection and Replacement
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: | 
+          rm -rf ${{secrets.DEPLOY_PATH}}
+          mv ${{secrets.SFTP_REMOTE}} ${{secrets.DEPLOY_PATH}}
+
 
     
