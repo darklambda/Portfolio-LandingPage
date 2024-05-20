@@ -4,7 +4,7 @@ import { environment } from './../environments/environment';
 export const corsInterceptor: HttpInterceptorFn = (req, next) => {
   let request = req.clone({
     setHeaders: {
-      'Access-Control-Allow-Origin': environment.API_URL
+      'Access-Control-Allow-Origin': '*'
     }
   })
   return next(req);
