@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from './../environments/environment';
 
@@ -7,9 +7,14 @@ import { environment } from './../environments/environment';
 })
 export class HttpService {
 
+
   constructor(private http: HttpClient) { }
 
   get_plots() {
-    return this.http.get<Object>(environment.API_URL + '/plots');
+  
+    const httpHeaders: HttpHeaders = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*'
+    });
+    return this.http.get<Object>(environment.API_URL + '/plots', {headers: httpHeaders});
   }
 }
