@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -13,12 +14,22 @@ import { MatListModule } from '@angular/material/list';
 })
 export class ProjectsComponent {
 
-  toDemo(): void {
+  constructor(  
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  toDemo1(): void {
     window.location.href = "http://oma.gonzalo-oberreuter.de"
   }
 
-  toRepo(): void {
+  toRepo1(): void {
     window.location.href = "https://github.com/darklambda/OMA"
+  }
+
+  toProject2(): void {
+    this.router.navigate(['plots'], {relativeTo: this.route});
+    //window.location.href = "https://github.com/darklambda/OMA"
   }
 
 }

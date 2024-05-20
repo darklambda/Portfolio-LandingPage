@@ -29,7 +29,7 @@
     padding-top: 6vw;
     padding-bottom: 1vw;
     text-align: center;
-    font-size: 3vw;
+    font-size: clamp(30px, 3vw, 50px);
 }
 
 .secondaryTitle{
@@ -71,9 +71,6 @@
 }
 
 @media screen and (max-width: 550px) {
-    .mainTitle {
-        font-size: 7vw !important;
-    }
 
     .secondaryTitle {
         font-size: 7vw !important;
