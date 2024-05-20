@@ -6,5 +6,5 @@
     padding-top: 6vw;
     padding-bottom: 1vw;
     text-align: center;
-    font-size: 3vw;
+    font-size: clamp(30px, 3vw, 50px);
 }

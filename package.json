@@ -24,7 +24,9 @@
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.2",
     "@frxjs/ngx-timeline": "^17.0.1",
+    "echarts": "^5.5.0",
     "express": "^4.18.2",
+    "ngx-echarts": "^17.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

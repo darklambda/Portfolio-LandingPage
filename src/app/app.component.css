@@ -26,19 +26,19 @@
 
 
 .centered-left {
-    font-size: 4vw;
+    font-size:  clamp(0px, 5vw, 30px);
     width: 20vw;
     margin-left: auto !important;
     margin-right: 1vw !important
 }
 .centered-right {
-    font-size: 4vw;
+    font-size:  clamp(0px, 5vw, 30px);
     width: 20vw;
     margin-right: auto !important;
     margin-left: 1vw !important
 }
 .centered {
-    font-size: 4vw;
+    font-size:  clamp(0px, 5vw, 30px);
     width: 20vw;
     margin: auto !important
 }
@@ -55,22 +55,22 @@
     margin-right: 2vw;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
     .mat-toolbar {
         margin: auto;
         width: 60vw
     }
 
     .centered {
-        font-size: 1.5vw;
+        font-size:  clamp(30px, 2vw, 50px);
     }
 
     .centered-left {
-        font-size: 1.5vw;
+        font-size:  clamp(30px, 2vw, 50px);
     }
 
     .centered-right {
-        font-size: 1.5vw;
+        font-size:  clamp(30px, 2vw, 50px);
     }
 
 }

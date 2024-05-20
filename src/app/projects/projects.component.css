@@ -14,7 +14,7 @@
     padding-top: 6vw;
     padding-bottom: 1vw;
     text-align: center;
-    font-size: 3vw;
+    font-size: clamp(30px, 3vw, 50px);
 }
 
 .goto {
@@ -31,13 +31,9 @@ background-image: url('https://material.angular.io/assets/img/examples/shiba1.jp
 background-size: cover;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
     .project-card {
         max-width: 100% !important;
-    }
-
-    .mainTitle {
-        font-size: 7vw !important;
     }
 
     .paragraph {
