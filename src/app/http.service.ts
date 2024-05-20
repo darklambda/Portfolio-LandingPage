@@ -11,10 +11,6 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   get_plots() {
-  
-    const httpHeaders: HttpHeaders = new HttpHeaders({
-      'Access-Control-Allow-Origin': environment.API_URL
-    });
-    return this.http.get<Object>(environment.API_URL + '/plots', {headers: httpHeaders});
+    return this.http.get<Object>(environment.API_URL + '/plots');
   }
 }
