@@ -10,6 +10,6 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   get_plots() {
-    return this.http.get<Object>(environment.API_URL);
+    return this.http.get<Object>(environment.API_URL + '/plots');
   }
 }

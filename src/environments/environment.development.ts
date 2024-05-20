@@ -1,3 +1,3 @@
 export const environment = {
-    API_URL: 'http://localhost:9000/plots'
+    API_URL: 'http://localhost:9000'
 };
