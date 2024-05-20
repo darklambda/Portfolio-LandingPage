@@ -1,9 +1,10 @@
 .project-card {
     max-width: 50%;
     padding: auto;
-    margin-top: 5vw;
+    margin-top: 2.5vw;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2.5vw;
 }
 
 .mainTitle{
@@ -11,10 +12,14 @@
     color: white;
     margin: auto;
     width: 100%;
-    padding-top: 6vw;
+    padding-top: 4vw;
     padding-bottom: 1vw;
     text-align: center;
-    font-size: clamp(30px, 3vw, 50px);
+    font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
+}
+
+.secondaryTitle{
+    font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
 }
 
 .goto {
@@ -22,7 +27,7 @@
 }
 
 .paragraph {
-    font-size: 1vw;
+    font-size: clamp(0.625rem, 0.625rem + 0.625vw, 1.25rem);
     text-align: justify;
 }
   
@@ -31,12 +36,32 @@ background-image: url('https://material.angular.io/assets/img/examples/shiba1.jp
 background-size: cover;
 }
 
+@media screen and (max-width: 1000px) {
+
+    .project-card {
+        max-width: 80% !important;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+    .mainTitle {
+        font-size: clamp(1.5625rem, 1.5625rem + 1.1111vw, 2.1875rem); /*25-35 (0-900)*/
+    }
+
+    .secondaryTitle {
+        font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
+    }
+
+}
+
+
+
 @media screen and (max-width: 650px) {
+
     .project-card {
         max-width: 100% !important;
     }
 
-    .paragraph {
-        font-size: 4vw;
-    }
 }

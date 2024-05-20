@@ -16,7 +16,8 @@
 
 .paragraphDesktop {
     padding: 4vw;
-    font-size: 1vw;
+    font-size: clamp(0.9375rem, 0.1339rem + 1.4286vw, 1.5625rem); /*15-25 (900-1600)*/
+    line-height:1;
     color: white;
     text-align: justify;
 }
@@ -26,10 +27,10 @@
     color: white;
     margin: auto;
     width: 100%;
-    padding-top: 6vw;
+    padding-top: 4vw;
     padding-bottom: 1vw;
     text-align: center;
-    font-size: clamp(30px, 3vw, 50px);
+    font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
 }
 
 .secondaryTitle{
@@ -38,42 +39,19 @@
     margin: auto;
     width: 100%;
     padding-top: 1vw;
-    padding-bottom: 5vw;
+    padding-bottom: 1vw;
     text-align: center;
-    font-size: 2vw;
+    font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
 }
 
-.secondaryTitleBold{
-    font-family: 'Lato-Bold';
-    color: white;
-    margin: auto;
-    width: 100%;
-    padding-top: 1vw;
-    padding-bottom: 5vw;
-    text-align: center;
-    font-size: 2vw;
-}
+@media screen and (max-width: 900px) {
 
-.terciaryTitleBold{
-    
-    font-family: 'Lato-Bold';
-    color: white;
-    margin: auto;
-    width: 100%;
-    padding-top: 1vw;
-    padding-bottom: 5vw;
-    text-align: center;
-    font-size: 1vw;
-}
-
-.tileTitle {
-    text-align: center;
-}
-
-@media screen and (max-width: 550px) {
+    .mainTitle {
+        font-size: clamp(1.5625rem, 1.5625rem + 1.1111vw, 2.1875rem); /*25-35 (0-900)*/
+    }
 
     .secondaryTitle {
-        font-size: 7vw !important;
+        font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
     }
     .classicGrid {
         display: none !important;
@@ -85,7 +63,8 @@
 
     .paragraphSmartphone {
         padding: 4vw;
-        font-size: 5vw;
+        font-size: clamp(0.9375rem, 0.9375rem + 0.5556vw, 1.25rem); /*15-20 (0-900)*/
+        line-height:1;
         color: white;
         text-align: justify;
     }
