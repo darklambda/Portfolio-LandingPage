@@ -7,5 +7,5 @@ export const corsInterceptor: HttpInterceptorFn = (req, next) => {
       'Access-Control-Allow-Origin': '*'
     }
   })
-  return next(req);
+  return next(request);
 };
