@@ -13,7 +13,7 @@ export class HttpService {
   get_plots() {
   
     const httpHeaders: HttpHeaders = new HttpHeaders({
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': environment.API_URL
     });
     return this.http.get<Object>(environment.API_URL + '/plots', {headers: httpHeaders});
   }
