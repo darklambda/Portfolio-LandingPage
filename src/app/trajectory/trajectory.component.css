@@ -23,10 +23,10 @@
 .trajectory-card {
     max-width: 50%;
     padding: auto;
-    margin-top: 5vh;
+    margin-top: 2.5vw;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5vh; 
+    margin-bottom: 2.5vw;
 }
 
 .listItem {
@@ -79,8 +79,6 @@ i.fa.fa-check-circle {
     }
 
 }
-
-
 
 @media screen and (max-width: 650px) {
     
