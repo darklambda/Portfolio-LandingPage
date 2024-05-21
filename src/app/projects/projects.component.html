@@ -2,7 +2,7 @@
 
 <mat-card class="project-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+    <div mat-card-avatar class="wrapper"><i class="fa-solid fa-chart-line fa-2x card-icon"></i></div>
     <mat-card-title class="secondaryTitle">Apache Echarts & FastAPI Test </mat-card-title>
   </mat-card-header>
   <mat-card-content>
@@ -17,7 +17,7 @@
 
 <mat-card class="project-card">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+      <div mat-card-avatar class="wrapper"><i class="fa-solid fa-id-card-clip fa-2x card-icon"></i></div>
       <mat-card-title class="secondaryTitle">Orchestra Management App - OMA </mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -25,10 +25,11 @@
         Orchestra Management web-App is an implementation of a CRM applied to the handling of information regarding members of orchestras. It is still in a pre-release state, but the main functionalities are:
       </p>
       <mat-list>
-        <mat-list-item>the storage of member's personal information</mat-list-item>
-        <mat-list-item>the storage of scores in PDF files</mat-list-item>
-        <mat-list-item>the communication of general notification</mat-list-item>
+        <div class="list-element"><i class="fa-solid fa-circle fa-xs bullet-point"></i> the storage of member's personal information</div>
+        <div class="list-element"><i class="fa-solid fa-circle fa-xs bullet-point"></i> the storage of scores in PDF files</div>
+        <div class="list-element"><i class="fa-solid fa-circle fa-xs bullet-point"></i> the communication of general notification</div>
       </mat-list>
+      
     </mat-card-content>
     <mat-card-actions>
       <button (click)="toDemo1()" mat-button class="goto" >Go to LiveDemo</button>

@@ -1,13 +1,13 @@
 .mainTitle{
-    display: none;
     font-family: 'Lato-Bold';
+    display: none;
     color: white;
     margin: auto;
-    width: 15%;
-    padding-top: 6vw;
+    width: 100%;
+    padding-top: 4vw;
     padding-bottom: 1vw;
     text-align: center;
-    font-size: 3vw;
+    font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
 }
 
 .secondaryTitle{
@@ -17,7 +17,7 @@
     padding-top: 4vw;
     padding-bottom: 1vw;
     text-align: center;
-    font-size: clamp(30px, 3vw, 50px);
+    font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem);
 }
 
 .trajectory-card {
@@ -65,14 +65,27 @@ i.fa.fa-check-circle {
     margin-bottom: 1vh;
 }
 
+@media screen and (max-width: 1000px) {
 
-@media screen and (max-width: 650px) {
     .trajectory-card {
-        max-width: 100% !important;
+        max-width: 80% !important;
     }
+}
+
+@media screen and (max-width: 900px) {
 
     .secondaryTitle {
-        font-size: 7vw !important;
+        font-size: clamp(1.5625rem, 1.5625rem + 1.1111vw, 2.1875rem); /*25-35 (0-900)*/
+    }
+
+}
+
+
+
+@media screen and (max-width: 650px) {
+    
+    .trajectory-card {
+        max-width: 100% !important;
     }
 
     .listText {
