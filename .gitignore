@@ -1,5 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Env files
+
+/src/environment/*
+
 # Compiled output
 /dist
 /tmp
@@ -22,8 +26,8 @@ yarn-error.log
 
 # Visual Studio Code
 .history/*
-.vscode/*
-.angular/*
+.vscode/
+.angular/
 
 # Miscellaneous
 /.angular/cache
@@ -37,3 +41,4 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
