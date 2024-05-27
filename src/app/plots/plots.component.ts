@@ -17,26 +17,48 @@ import { HttpService } from '../http.service';
 })
 export class PlotsComponent implements OnInit {
 
-  options!: EChartsOption;
+  options: EChartsOption = {
+    title: {
+      show: false,
+    },
+    tooltip: {},
+    xAxis: {
+      data: [],
+    },
+    yAxis: {},
+  };
   available: boolean = true;
   data: any;
+
   constructor(private httpService:HttpService) {}
 
-  ngOnInit() {
-    this.httpService.get_plots()
-    .subscribe({
-      next: (body: Object) => {
-        this.data = body;
+  build_plot(body: Object): void {
+    this.data = body;
   
         this.options = {
+          legend: {
+            // Try 'horizontal'
+            orient: 'vertical',
+            left: '15%',
+            top: '15%',
+            data: [
+              {
+                name: 'Sent Applications'
+              },
+              {
+                name: 'Rejections'
+              }
+            ]
+          },
           title: {
             show: true,
+            top: '5%',
             left: 'center',
-            text: 'Cumulative Frequency \n of Job Applications Over Time'
+            text: 'Job Applications Info Over Time'
           },
           tooltip: {},
           xAxis: {
-            data: this.data.x_axis,
+            data: this.data.applications.x_axis,
             silent: false,
             splitLine: {
               show: false,
@@ -49,18 +71,38 @@ export class PlotsComponent implements OnInit {
           yAxis: {},
           series: [
             {
-              name: 'Applications',
+              name: 'Sent Applications',
               type: 'line',
-              data: this.data.y_axis,
+              data: this.data.applications.y_axis,
+              lineStyle: {color: '#2170a8'},
+              itemStyle: {color: '#2170a8'},
+              animationDelay: idx => idx * 10,
+            },
+            {
+              name: 'Rejections',
+              type: 'line',
+              data: this.data.rejections.y_axis,
+              lineStyle: {color: '#a82133'},
+              itemStyle: {color: '#a82133'},
               animationDelay: idx => idx * 10,
             }
           ],
           animationEasing: 'elasticOut',
           animationDelayUpdate: idx => idx * 5,
         };
+  }
+
+  ngOnInit() {
+    this.httpService.get_plots()
+    .subscribe({
+      next: (body: Object) => {
+        try {
+          this.build_plot(body);
+        } catch (error) {
+          this.available = false;
+        }
       },
     error: (error) => {this.available = false;}
     });
   }
-
 }
