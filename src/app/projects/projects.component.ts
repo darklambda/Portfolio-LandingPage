@@ -27,9 +27,11 @@ export class ProjectsComponent {
     window.location.href = "https://github.com/darklambda/OMA"
   }
 
-  toProject2(): void {
+  toDemo2(): void {
     this.router.navigate(['plots'], {relativeTo: this.route});
-    //window.location.href = "https://github.com/darklambda/OMA"
   }
 
+  toRepo2(): void {
+    window.location.href = "https://github.com/darklambda/FastAPI-PlotData"
+  }
 }
