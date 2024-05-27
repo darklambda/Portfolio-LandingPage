@@ -34,4 +34,9 @@ export class ProjectsComponent {
   toRepo2(): void {
     window.location.href = "https://github.com/darklambda/FastAPI-PlotData"
   }
+
+  toDemo3(): void {
+    this.router.navigate(['camera'], {relativeTo: this.route});
+  }
+
 }
