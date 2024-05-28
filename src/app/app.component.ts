@@ -6,15 +6,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
 
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, MatToolbarModule,
-            MatMenuModule, MatButtonModule, RouterLink, MatIconModule, HttpClientModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+@Component({ selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css', imports: [CommonModule, RouterOutlet, MatToolbarModule,
+        MatMenuModule, MatButtonModule, RouterLink, MatIconModule], 
 })
 export class AppComponent {
 
