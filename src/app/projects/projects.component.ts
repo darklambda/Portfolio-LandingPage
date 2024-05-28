@@ -36,7 +36,11 @@ export class ProjectsComponent {
   }
 
   toDemo3(): void {
-    this.router.navigate(['camera'], {relativeTo: this.route});
+    this.router.navigate(['rp-camera'], {relativeTo: this.route});
+  }
+
+  toRepo3(): void {
+    window.location.href = "https://github.com/darklambda/R-Pi-Security-Camera"
   }
 
 }

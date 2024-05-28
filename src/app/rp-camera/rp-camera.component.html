@@ -1,0 +1,23 @@
+<h1 class="mainTitle"> Raspberry Pi Security Camera </h1>
+
+<div class="container" style="background-color: white; padding: 1vw; border-radius: 15px;">
+    <p class="paragraph">
+        This projects started after I bought my first RaspberryPi Zero W and wanted to try out a more complex IoT project, compared to the ones I did previously with the Arduino UNO I own (e.g. stuff with logic gates and LEDs).
+        At the time I also owned a 3D printer, which together with the window I had in my room gave me the idea of doing a full security camera system, including the casing for the Raspberry and all.
+        The main innovation of this idea compared to the technology I had used so far was ZeroMQ, working as the library for the transfer of images through a stream in base64 format.
+        The way this project's architecture works, is by using a Node.js server as proxy server for the redirection of the image stream to a final consumer through a websocket, as usually it is complicated (and unsafe) to set a fixed IP for a router of daily non-business use.
+        Like this, if someone would like to deploy this project, the Node server would need to get hosted in a remote machine, so the RaspberryPi can have a fixed IP address to sent the stream, and for a web client to be able to receive the video by connecting to the websocket.
+        At the end of this project's entry are the STL files for the printing of the Raspberry Pi's security camera case. 
+        Further explanation on how to deploy the project can be found on it's <a href="https://github.com/darklambda/R-Pi-Security-Camera">repository</a>.
+        The following image presents a diagram of how the previous explanation.
+    </p>
+
+    <img class="image" src="/assets/Images/scheme.webp">
+</div>
+
+<h2 class="secondaryTitle"> STL Files </h2>
+<div class="container">
+    <stl-model-viewer class="viewer" [camera]="cameras[1]" [stlModels]="['/assets/StlFiles/1.stl']"></stl-model-viewer>
+    <stl-model-viewer class="viewer" [camera]="cameras[2]" [stlModels]="['/assets/StlFiles/2.stl']"></stl-model-viewer>
+    <stl-model-viewer class="viewer" [camera]="cameras[3]" [stlModels]="['/assets/StlFiles/3.stl']"></stl-model-viewer>
+</div>
