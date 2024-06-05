@@ -1,12 +1,21 @@
-.classicGrid {
+.mainContainer {
     margin-left: auto;
     margin-right: auto;
-    padding: 0vw;
-    width: 60vw;
+    padding: 2vw;
+    width: 50vw;
 }
 
-.smallGrid {
-    display: none;
+.email {
+    background-color: white;
+    border-radius: 35px;
+    padding: 1.5vw;
+    font-size: clamp(0.9375rem, 0.9375rem + 0.625vw, 1.5625rem);
+}
+
+.emailContainer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
 }
 
 .photoDesktop {
@@ -14,8 +23,8 @@
     width: 100%
 }
 
-.paragraphDesktop {
-    padding: 4vw;
+.paragraph {
+    padding: auto;
     font-size: clamp(0.9375rem, 0.1339rem + 1.4286vw, 1.5625rem); /*15-25 (900-1600)*/
     line-height:1;
     color: white;
@@ -53,16 +62,15 @@
     .secondaryTitle {
         font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
     }
-    .classicGrid {
-        display: none !important;
-    }
 
-    .smallGrid {
+    .mainContainer {
+        padding: 3vw;
         display: block;
+        width: 90vw;
     }
 
-    .paragraphSmartphone {
-        padding: 4vw;
+    .paragraph {
+        padding: 1vw;
         font-size: clamp(0.9375rem, 0.9375rem + 0.5556vw, 1.25rem); /*15-20 (0-900)*/
         line-height:1;
         color: white;
@@ -74,5 +82,12 @@
         margin-right: 5vw;
         border-radius: 10%;
         width: 90vw
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .dis {
+        display: none;
     }
 }
