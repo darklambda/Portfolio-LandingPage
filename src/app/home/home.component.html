@@ -18,6 +18,7 @@
             matTooltip="Email Copied!"
             matTooltipPosition="above"
             (click)="displayTooltip()"
+            [cdkCopyToClipboard]="email"
             class="emailContainer">
         <button mat-stroked-button class="email"> {{email}} <i class="fa fa-copy envelope dis"></i></button> 
 </div>
