@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 export class HomeComponent{
 
-  email: string = 'usergonzalo@gmail.com'
+  email: string = 'gonzalo.oberreuter@gmail.com'
 
   @ViewChild("myTooltip") myTooltip!: MatTooltip;
 
