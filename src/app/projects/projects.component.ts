@@ -28,19 +28,29 @@ export class ProjectsComponent {
   }
 
   toDemo2(): void {
-    this.router.navigate(['plots'], {relativeTo: this.route});
-  }
-
-  toRepo2(): void {
-    window.location.href = "https://github.com/darklambda/FastAPI-PlotData"
-  }
-
-  toDemo3(): void {
     this.router.navigate(['rp-camera'], {relativeTo: this.route});
   }
 
-  toRepo3(): void {
+  toRepo2(): void {
     window.location.href = "https://github.com/darklambda/R-Pi-Security-Camera"
   }
+
+  toDemo3(): void {
+    this.router.navigate(['plots'], {relativeTo: this.route});
+  }
+
+  toRepo3(): void {
+    window.location.href = "https://github.com/darklambda/FastAPI-PlotData"
+  }
+
+  toDemo4(): void {
+    this.router.navigate(['openCV'], {relativeTo: this.route});
+  }
+
+  toRepo4(): void {
+    window.location.href = "https://github.com/darklambda/FastAPI-PlotData"
+  }
+
+
 
 }
