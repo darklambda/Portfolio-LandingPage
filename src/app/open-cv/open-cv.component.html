@@ -2,8 +2,18 @@
 
 <div class="container" style="background-color: white; padding: 1vw; border-radius: 15px;">
 
-<div class="webcam-wrapper">
-    <video #video [width]="400" [height]="400" autoplay muted playsinline *ngIf="webcamsAvailable" ></video>
-</div>
+    <div *ngIf="webcamAvailable && !permissionsDenied">
+        <video id="video" autoplay playsinline style="width: 50vw; height: 50vh;"></video>
+        <button (click)="onStart()">Start</button>
+        <button (click)="onStop()">Stop</button>
+    </div>
+
+    <div *ngIf="permissionsDenied">
+        Permissions denied. Refresh webpage.
+    </div>
+
+    <div *ngIf="!webcamAvailable">
+        No webcam available
+    </div>
 
 </div>
