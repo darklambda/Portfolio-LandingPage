@@ -1,27 +1,37 @@
 import { Component, OnInit} from '@angular/core';
 import { NgIf } from '@angular/common';
 import { environment } from '../../environments/environment';
+import { MatButtonModule } from '@angular/material/button';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-open-cv',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, MatButtonModule],
   templateUrl: './open-cv.component.html',
   styleUrl: './open-cv.component.css'
 })
-export class OpenCVComponent implements OnInit {
+export class OpenCVComponent implements OnInit{
+
+  constructor(private router: Router) {}
   
   private peer!: RTCPeerConnection;
 
   public webcamAvailable = true;
   public webcamOnUse = false;
   public permissionsDenied = false;
+  public start = true;
 
   public mediaStream: MediaStream | undefined;
   public streamAvailable: boolean = false;
-
   
   ngOnInit(): void {
+    
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart 
+        && !this.start) this.onStop()
+    });
+
     OpenCVComponent.getAvailableVideoInputs()
     .then(
       (mediaDevices: MediaDeviceInfo[]) => {
@@ -31,17 +41,19 @@ export class OpenCVComponent implements OnInit {
   }
 
   public onStart() {
-    if (!this.mediaStream)
-      navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-        .then(stream  => {
-          this.mediaStream = stream;
-          this.startWebRTC();
-        })
-        .catch( err => {
-          console.log(err);
-          this.onStop();
-          this.permissionsDenied = true;
-        });
+    
+    this.start = false;
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+    .then(stream  => {
+      this.mediaStream = stream;
+      this.startWebRTC();
+    })
+    .catch( err => {
+      console.log(err);
+      this.onStop();
+      this.permissionsDenied = true;
+    });
+    
   }
 
   private startWebRTC() {
@@ -121,7 +133,7 @@ export class OpenCVComponent implements OnInit {
     }).then((response) => response.json()
     ).then((answer) => {
         console.log("Answer Description", answer)
-        pc.setRemoteDescription(answer);
+        if (pc) pc.setRemoteDescription(answer);
     }).catch((error) => {
         alert(error);
         throw error;
@@ -129,6 +141,8 @@ export class OpenCVComponent implements OnInit {
   }
 
   public onStop() {
+    this.start = true;
+    this.streamAvailable = false;
     let remoteVideo = document.getElementsByTagName('video')[0];
     if (remoteVideo && remoteVideo.srcObject) remoteVideo.srcObject = null;
 
@@ -138,18 +152,14 @@ export class OpenCVComponent implements OnInit {
 
     if (pc) {
         pc.getTransceivers().forEach((transceiver) => {
-          if (transceiver && transceiver.stop) transceiver.stop();  
+          if (transceiver && transceiver.sender) transceiver.stop();  
         });
         pc.getSenders().forEach((sender) => {
           if (sender && sender.track) sender.track.stop();
         });
+        pc.close();
     }
 
-    setTimeout(
-      () => {
-        if (pc) pc.close();
-      }, 
-      500);
   }
 
   public static getAvailableVideoInputs(): Promise<MediaDeviceInfo[]> {
