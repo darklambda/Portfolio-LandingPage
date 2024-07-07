@@ -1,18 +1,7 @@
-.paragraph {
-    padding: 2vw;
-    font-size: clamp(0.625rem, 0.625rem + 0.625vw, 1.25rem); /*10-20 (0-1600)*/
-    text-align: justify;
-}
-
 .custom-button {
     background-color: white;
     padding: 1.5vw;
     font-size: clamp(0.9375rem, 0.9375rem + 0.625vw, 1.5625rem);
-}
-
-.button-container {
-    text-align:center;
-    vertical-align: bottom;
 }
 
 .container {
@@ -25,15 +14,57 @@
 
     padding: 1vw; 
     border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.viewer {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
-    height: 300px;
-    width: 300px;
+.row-container {
+    height: 50%;
+    text-align: center;
+    align-content: center;
+}
+
+.message-container {
+    height: 50%;
+    text-align: center;
+    align-content: center;
+}
+
+.controls {
+    display: block;
+    width: 30%;
+    float: left;
+    height: 100%;
+}
+
+.canvas {
+    width: 65%;
+    float: right;
+    height: 50vh;
+    text-align: center;
+
+}
+
+.no-video-message {
+    font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
+    color: white;
+}
+
+.error-message {
+    line-height: 100%;
+    text-align: center;
+    margin: auto;
+    font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
+    color: black;
+}
+
+.video {
+    border-radius: 15px;
+    align-content: center;
+    height: inherit;
+    width: 100%;
+    background-color: black;
     
 }
 
@@ -48,17 +79,6 @@
     font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
 }
 
-.secondaryTitle{
-    font-family: 'Lato-Light';
-    color: #B9CBD8;
-    margin: auto;
-    width: 100%;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    text-align: center;
-    font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
-}
-
 
 @media screen and (max-width: 900px) {
 
@@ -66,7 +86,11 @@
         font-size: clamp(1.5625rem, 1.5625rem + 1.1111vw, 2.1875rem); /*25-35 (0-900)*/
     }
 
-    .secondaryTitle {
+    .no-video-message {
+        font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
+    }
+
+    .error-message {
         font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
     }
 
@@ -77,8 +101,32 @@
         max-height: fit-content;
     }
 
-    .image {
-        max-width: 90vw;
+}
+
+@media screen and (max-width: 650px) {
+
+    .container {
+        display: block;
+        margin: 0 auto;
+        height: 60vh;
+    }
+
+    .video {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .canvas {
+        float: none;
+        width: 96%;
+        height: 40vh;
+    }
+
+    .controls {
+        width: 96%;
+        height: 20vh;
+        float: none;
+        margin: auto;
     }
 
 }
