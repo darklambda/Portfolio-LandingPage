@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NavigationStart, Router } from '@angular/router';
+import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 
 
 @Component({
@@ -53,9 +54,8 @@ export class OpenCVComponent implements OnInit{
       this.mediaStream = stream;
       this.startWebRTC();
     })
-    .catch( err => {
+    .catch( () => {
       this.working = false;
-      console.log(err);
       this.onStop();
       this.message = "Error while getting the video track...";
       this.permissionsDenied = true;
@@ -66,12 +66,7 @@ export class OpenCVComponent implements OnInit{
   private startWebRTC() {
     this.createPeerConnection();
     this.peer.addTrack(this.mediaStream!.getVideoTracks()[0]);
-    try {
-      this.negotiateConnection();
-    } catch {
-      this.message = "Error while generating RTC peer...";
-      this.onStop();
-    }
+    this.negotiateConnection();
   }
 
   private createPeerConnection() {
@@ -133,28 +128,44 @@ export class OpenCVComponent implements OnInit{
                 })
     ).then(() => {
         let offer = this.peer.localDescription;
-        if (offer !== null)
-        return fetch(environment.WEB_RTC, {
-            body: JSON.stringify({
-                sdp: offer.sdp,
-                type: offer.type,
-                video_transform: 'edges'
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST'
-        });
-        throw new Error("Empty Body");
-    }).then((response) => response.json()
-    ).then((answer) => {
-        console.log("Answer Description", answer)
-        if (pc) pc.setRemoteDescription(answer);
+        if (offer !== null) {
+          const socket = new WebSocket(environment.WEB_RTC);
+          return new Promise<string>((res, rej) => {
+            socket.addEventListener("message", (event) => {
+              const wsMessage: string = event.data
+              if (wsMessage.startsWith("1-")) {
+                socket.send(JSON.stringify({
+                  sdp: offer.sdp,
+                  type: offer.type,
+                  video_transform: 'edges' // TODO - Change in the future if necessary
+                }));
+              } else if (wsMessage.startsWith("2-")){
+                const remaining = wsMessage.slice(2)
+                this.message = `Waiting for an WebRTC connection. ${remaining} users ahead in the queue.`
+              } else {
+                res(wsMessage);
+              }
+            });
+            socket.addEventListener("close", (event) => {
+              console.log(event)
+              rej(event)
+            });
+          })
+        }
+        throw new Error("Empty Offer");
+    }).then((answer) => {
+        const parsedAnswer = JSON.parse(answer);
+        console.log("Answer Description", parsedAnswer)
+        if (pc) pc.setRemoteDescription(parsedAnswer);
     }).catch((error) => {
-        this.working = false;
         this.onStop();
-        this.message = "Error connecting to server...";
-        throw error;
+        if (error instanceof CloseEvent) {
+          if (error.wasClean) this.message = "Maximum Connection Reached. Try later.";
+          else this.message = "Signaling Server not Available.";
+        }
+          
+        else this.message = "Error while generating RTC peer...";
+
     });
   }
 

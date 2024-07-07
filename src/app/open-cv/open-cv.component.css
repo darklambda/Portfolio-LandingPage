@@ -73,10 +73,41 @@
     color: white;
     margin: auto;
     width: 100%;
-    padding-top: 4vw;
+    padding-top: 3vw;
     padding-bottom: 2vw;
     text-align: center;
     font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
+}
+
+.powered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+}
+
+.powered-by{
+    font-family: 'Lato-Light';
+    color: #B9CBD8;
+    font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 1vw;
+}
+
+.icons-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    background-color: white;
+    padding: 0.7vw;
+}
+
+.logo {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    height:  clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
 }
 
 
@@ -84,6 +115,14 @@
 
     .mainTitle {
         font-size: clamp(1.5625rem, 1.5625rem + 1.1111vw, 2.1875rem); /*25-35 (0-900)*/
+    }
+
+    .powered-by {
+        font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
+    }
+
+    .logo {
+        font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
     }
 
     .no-video-message {

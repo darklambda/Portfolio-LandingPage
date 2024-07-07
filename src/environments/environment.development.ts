@@ -1,4 +1,4 @@
 export const environment = {
     API_URL: 'http://localhost:9000',
-    WEB_RTC: 'http://localhost:8080/offer'
+    WEB_RTC: 'ws://localhost:8764'
 };
