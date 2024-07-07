@@ -3,19 +3,30 @@
 <div class="container">
 
     <div *ngIf="webcamAvailable && !permissionsDenied">
-        <video [hidden]="!streamAvailable" id="video" autoplay playsinline style="width: 50vw; height: 50vh;"></video>
-        <div class="button-container">
-            <button mat-stroked-button class="custom-button" [hidden]="!start" (click)="onStart()">Start</button>
-            <button mat-stroked-button class="custom-button" [hidden]="start" (click)="onStop()">Stop</button>
+        <div class="canvas">
+            <div [hidden]="streamAvailable" class="video">
+                <p *ngIf="!working" class="no-video-message">
+                    No Video Available
+                </p>
+                <mat-spinner *ngIf="working" style="margin-left: auto; margin-right: auto;"></mat-spinner>
+            </div>
+            <video [hidden]="!streamAvailable" class="video" id="video" autoplay playsinline></video>
         </div>
-
+        <div class="controls">
+            <div class="row-container">
+                <button mat-stroked-button class="custom-button" [hidden]="!start" (click)="onStart()">Start</button>                <button mat-stroked-button class="custom-button" [hidden]="start" (click)="onStop()">Stop</button>
+            </div>
+            <div class="message-container">
+                <p> {{message}} </p>
+            </div>
+        </div>
     </div>
 
-    <div *ngIf="permissionsDenied">
-        Permissions denied. Refresh webpage.
+    <div class="error-message" *ngIf="permissionsDenied">
+        <p> Permissions denied. <br> Refresh webpage and try again. </p> 
     </div>
 
-    <div *ngIf="!webcamAvailable">
+    <div class="error-message" *ngIf="!webcamAvailable">
         No webcam available
     </div>
 
