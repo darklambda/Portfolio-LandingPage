@@ -11,7 +11,7 @@
     color: white;
     margin: auto;
     width: 100%;
-    padding-top: 4vw;
+    padding-top: 3vw;
     padding-bottom: 2vw;
     text-align: center;
     font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
@@ -36,7 +36,7 @@
     padding-bottom: 1vw;
 }
 
-.secondaryTitle2{
+.powered-by{
     font-family: 'Lato-Light';
     color: #B9CBD8;
     font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
@@ -75,7 +75,7 @@
         font-size: clamp(1.5625rem, 1.5625rem + 1.1111vw, 2.1875rem); /*25-35 (0-900)*/
     }
 
-    .secondaryTitle2 {
+    .powered-by {
         font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
     }
 
