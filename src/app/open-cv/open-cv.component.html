@@ -1,9 +1,42 @@
 <h1 class="mainTitle"> OpenCV Live Video Processing </h1>
 
-<div class="container" style="background-color: white; padding: 1vw; border-radius: 15px;">
+<div class="container">
 
-<div class="webcam-wrapper">
-    <video #video [width]="400" [height]="400" autoplay muted playsinline *ngIf="webcamsAvailable" ></video>
-</div>
+    <div *ngIf="webcamAvailable && !permissionsDenied">
+        <div class="canvas">
+            <div [hidden]="streamAvailable" class="video">
+                <p *ngIf="!working" class="no-video-message">
+                    No Video Available
+                </p>
+                <mat-spinner *ngIf="working" style="margin-left: auto; margin-right: auto;"></mat-spinner>
+            </div>
+            <video [hidden]="!streamAvailable" class="video" id="video" autoplay playsinline></video>
+        </div>
+        <div class="controls">
+            <div class="row-container">
+                <button mat-stroked-button class="custom-button" [hidden]="!start" (click)="onStart()">Start</button>                <button mat-stroked-button class="custom-button" [hidden]="start" (click)="onStop()">Stop</button>
+            </div>
+            <div class="message-container">
+                <p> {{message}} </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="error-message" *ngIf="permissionsDenied">
+        <p> Permissions denied. <br> Refresh webpage and try again. </p> 
+    </div>
+
+    <div class="error-message" *ngIf="!webcamAvailable">
+        No webcam available
+    </div>
+
+    <div class="powered">
+        <h2 class="powered-by"> Powered By</h2> 
+        <div class="icons-wrapper"> 
+            <img class="logo" src="/assets/Images/docker-logo.webp"/>
+            <img class="logo" src="/assets/Images/webrtc-logo.webp"/>
+            <img class="logo" src="/assets/Images/opencv-logo.webp"/>
+        </div> 
+    </div>
 
 </div>

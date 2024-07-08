@@ -18,6 +18,9 @@
     margin-left: auto;
     margin-right: auto;
     max-height: fit-content;
+    background-color: white; 
+    padding: 1vw; 
+    border-radius: 15px;
 }
 
 .viewer {
@@ -35,7 +38,7 @@
     color: white;
     margin: auto;
     width: 100%;
-    padding-top: 4vw;
+    padding-top: 3vw;
     padding-bottom: 2vw;
     text-align: center;
     font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
