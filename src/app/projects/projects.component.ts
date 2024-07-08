@@ -48,7 +48,7 @@ export class ProjectsComponent {
   }
 
   toRepo4(): void {
-    window.location.href = "https://github.com/darklambda/FastAPI-PlotData"
+    window.location.href = "https://github.com/darklambda/OpenCV-WebRTC"
   }
 
 
