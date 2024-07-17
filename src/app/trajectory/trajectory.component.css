@@ -30,7 +30,7 @@
 }
 
 .listItem {
-    margin-bottom: 2vh;
+    margin-bottom: 2dvh;
 }
 
 .icon {
@@ -49,7 +49,7 @@ i.fa.fa-check-circle {
 .listText {
     display: table-cell;
     vertical-align: top;
-    font-size:2vh;
+    font-size:2dvh;
     line-height:1.43em;
 }
 
@@ -58,11 +58,11 @@ i.fa.fa-check-circle {
 }
 
 .subTitle {
-    margin-bottom: 2vh;
+    margin-bottom: 2dvh;
 }
 
 .subTitle2 {
-    margin-bottom: 1vh;
+    margin-bottom: 1dvh;
 }
 
 @media screen and (max-width: 1000px) {

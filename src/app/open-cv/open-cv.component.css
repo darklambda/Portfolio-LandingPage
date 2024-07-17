@@ -7,7 +7,7 @@
 .container {
     background-color: white; 
     max-width: 50%;
-    height: 50vh;
+    height: 50dvh;
 
     margin-left: auto;
     margin-right: auto;
@@ -41,7 +41,7 @@
 .canvas {
     width: 65%;
     float: right;
-    height: 50vh;
+    height: 50dvh;
     text-align: center;
 
 }
@@ -147,7 +147,7 @@
     .container {
         display: block;
         margin: 0 auto;
-        height: 60vh;
+        height: 60dvh;
     }
 
     .video {
@@ -158,12 +158,12 @@
     .canvas {
         float: none;
         width: 96%;
-        height: 40vh;
+        height: 40dvh;
     }
 
     .controls {
         width: 96%;
-        height: 20vh;
+        height: 20dvh;
         float: none;
         margin: auto;
     }
