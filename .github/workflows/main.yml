@@ -2,6 +2,11 @@ name: Build  & Deploy
 on:
   push:
     branches: master
+    paths:
+      - 'src'
+      - '.github/workflows/main.yml'
+      - 'angular.json'
+      - 'package.json'
 jobs:
 
   build:
