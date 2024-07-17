@@ -1,5 +1,7 @@
 # Portfolio LandingPage
 
+![GitHub CI](https://github.com/darklambda/Portfolio-LandingPage/actions/workflows/main.yml/badge.svg)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.2, with the idea of it being the first approach to any of my personal projects.
 
 ## Development server
