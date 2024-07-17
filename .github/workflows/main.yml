@@ -14,10 +14,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-    - name: Printing ls
-      run: ls
     - name: Create environment file
-      run: mkdir src/environments && touch /src/environments.environments.ts
+      run: mkdir src/environments && touch src/environments.environments.ts
     - name: Write environment file
       env:
         ENV_FILE: ${{ secrets.ENV_FILE }}
