@@ -4,7 +4,6 @@ import { environment } from '../../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NavigationStart, Router } from '@angular/router';
-import { consumerPollProducersForChange } from '@angular/core/primitives/signals';
 
 
 @Component({
@@ -75,6 +74,11 @@ export class OpenCVComponent implements OnInit{
       'iceServers': [
         {
           'urls': 'stun:stun.l.google.com:19302'
+        },
+        {
+          'urls': environment.TURN_URL,
+          'username': environment.TURN_USER,
+          'credential': environment.TURN_PASS
         }
       ]
     }
