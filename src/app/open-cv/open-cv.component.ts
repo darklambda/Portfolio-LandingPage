@@ -70,7 +70,16 @@ export class OpenCVComponent implements OnInit{
   }
 
   private createPeerConnection() {
-    const pc = new RTCPeerConnection();
+
+    const ICE_Config= {
+      'iceServers': [
+        {
+          'urls': 'stun:stun.l.google.com:19302'
+        }
+      ]
+    }
+
+    const pc = new RTCPeerConnection(ICE_Config);
 
     pc.addEventListener('icegatheringstatechange', 
       () => { console.log("Ice Gathering State Change", pc.iceGatheringState) }, 
