@@ -77,7 +77,7 @@ export class OpenCVComponent implements OnInit{
       ]
     }
 
-    const pc = new RTCPeerConnection();//ICE_Config);
+    const pc = new RTCPeerConnection(ICE_Config);
 
     pc.addEventListener('icegatheringstatechange', 
       () => { console.log("Ice Gathering State Change", pc.iceGatheringState) }, 
