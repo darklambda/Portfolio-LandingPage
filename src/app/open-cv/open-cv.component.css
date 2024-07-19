@@ -52,6 +52,7 @@
 }
 
 .error-message {
+    height: inherit;
     line-height: 100%;
     text-align: center;
     margin: auto;
@@ -66,6 +67,11 @@
     width: 100%;
     background-color: black;
     
+}
+
+.paragraph-error {
+    height: inherit;
+    align-content: center;
 }
 
 .mainTitle{

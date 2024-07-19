@@ -90,6 +90,17 @@ export class OpenCVComponent implements OnInit{
         if (pc.iceConnectionState === 'disconnected') {
           this.onStop();
           this.message = "RTC connection closed by server";
+        } else if (pc.iceConnectionState === 'connected') {
+          let counter = 31;
+          let intervalId = setInterval(() => {
+            counter = counter - 1;
+            this.message = `Live Video Processing! \n ${counter} Seconds left before timeout. `;
+              if(counter === 0) {
+                clearInterval(intervalId);
+                this.onStop();
+                this.message = "WebRTC Connection Closed";
+              } 
+          }, 1000);
         }
       },
       false
@@ -106,8 +117,8 @@ export class OpenCVComponent implements OnInit{
         if (remoteVideo) {
           this.streamAvailable = true;
           this.working = false;
-          this.message = "Live video stream connected!";
-          remoteVideo.srcObject = event.streams[0];
+          this.message = "Peer found! Waiting for Connection...";
+          remoteVideo.srcObject = event.streams[0];          
         } 
     });
 

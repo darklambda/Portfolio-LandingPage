@@ -41,7 +41,6 @@
 .wrapper {
     background-color: #0f3a58; 
     display: flex;
-    align-items: center;
 }
 
 .card-icon {

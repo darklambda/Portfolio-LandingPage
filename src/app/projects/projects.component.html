@@ -1,19 +1,25 @@
 <h1 class="mainTitle"> Personal Projects </h1>
 
-<!--mat-card class="project-card">
+<mat-card class="project-card">
   <mat-card-header>
-    <div mat-card-avatar class="wrapper"><i class="fa-solid fa-chart-line fa-2x card-icon"></i></div>
-    <mat-card-title class="secondaryTitle">OpenCV </mat-card-title>
+    <div mat-card-avatar class="wrapper">
+      <span class="fa-stack card-icon">
+        <i class="fa-solid fa-laptop fa-stack-2x"></i>
+        <i class="fa-solid fa-eye fa-stack-1x"></i>
+      </span>
+    </div>
+    <mat-card-title class="secondaryTitle">OpenCV & WebRTC</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p class="paragraph" >
+    <p class="paragraph">
+      Throwback to my work as a student during <a href="https://www.feriadesoftware.cl/feria/2020/"><q>FSMTU's XXIX Software Fair</q></a>, where I worked as a Backend Developer for the coding of a Real-Time Video App. Here, I am once again deploying a WebSocket instance as a Signaling Server for the management of RTC Peer Connections. Only one RTC Peer may be working at a time with a timeout of 30 seconds (the connection might take around 30~45 seconds to establish). The idea of the video transmition, is to transform the user's webcam through an OpenCV media transformer.
     </p>
   </mat-card-content>
   <mat-card-actions>
     <button (click)="toDemo4()" mat-stroked-button class="goto" >Go to Demo</button>
     <button (click)="toRepo4()" mat-stroked-button class="goto">Go to Repository</button>
   </mat-card-actions>
-</mat-card-->
+</mat-card>
 
 <mat-card class="project-card">
   <mat-card-header>
@@ -22,7 +28,7 @@
   </mat-card-header>
   <mat-card-content>
     <p class="paragraph" >
-      Test of the Angular version of Apache Echarts for the data visualization of data gathered from my current job search, started in March 2024. The processed axis arrays are obtained through a containerized microservice of FastAPI. 
+      Test of an Angular directive of Apache Echarts for the data visualization of data gathered from my current job search, started in March 2024. The processed axis data arrays are obtained through a containerized microservice of FastAPI, calling the Google Drive API. 
     </p>
   </mat-card-content>
   <mat-card-actions>
