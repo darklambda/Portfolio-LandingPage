@@ -47,7 +47,7 @@ export class OpenCVComponent implements OnInit{
     
     this.start = false;
     this.working = true;
-    this.message = "Waiting for server..."
+    this.message = "Waiting for WebSocket Connection..."
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
     .then(stream  => {
       this.mediaStream = stream;
@@ -62,18 +62,12 @@ export class OpenCVComponent implements OnInit{
     
   }
 
-  private startWebRTC() {
-    this.createPeerConnection();
-    this.peer.addTrack(this.mediaStream!.getVideoTracks()[0]);
-    this.negotiateConnection();
-  }
-
   private createPeerConnection() {
 
     const ICE_Config= {
       'iceServers': [
         {
-          'urls': 'stun:stun.l.google.com:19302'
+          'urls': environment.STUN_URL
         },
         {
           'urls': environment.TURN_URL,
@@ -83,7 +77,7 @@ export class OpenCVComponent implements OnInit{
       ]
     }
 
-    const pc = new RTCPeerConnection(ICE_Config);
+    const pc = new RTCPeerConnection();//ICE_Config);
 
     pc.addEventListener('icegatheringstatechange', 
       () => { console.log("Ice Gathering State Change", pc.iceGatheringState) }, 
@@ -117,69 +111,79 @@ export class OpenCVComponent implements OnInit{
         } 
     });
 
+    pc.addTrack(this.mediaStream!.getVideoTracks()[0]);
+
     this.peer = pc;
   }
 
-  private negotiateConnection() {
+  private startWebRTC() {
+    const socket = new WebSocket(environment.WEB_RTC);
+    socket.addEventListener("message", (event) => {
+      const wsMessage: string = event.data
+      if (wsMessage.startsWith("1-")) {
+        // Waiting for connection
+        const remaining = wsMessage.slice(2)
+        this.message = `Waiting for an available connection slot. ${remaining} users ahead in the queue.`
 
-    const pc = this.peer;
-
-    pc.createOffer().then(
-      (offer) => pc.setLocalDescription(offer)
-    ).then(() => new Promise<void>(
-                  (resolve) => {
-                    if (pc.iceGatheringState === 'complete') resolve();
-                    else {
-                        function checkState() {
-                            if (pc.iceGatheringState === 'complete') {
-                                pc.removeEventListener('icegatheringstatechange', checkState);
-                                resolve();
+      } else if (wsMessage.startsWith("2-")){
+        // Create WebRTC Peer and send offer
+        this.createPeerConnection();
+        const pc = this.peer;
+        this.message = "Waiting for WebRTC connection"
+        pc.createOffer().then(
+          (offer) => pc.setLocalDescription(offer)
+        ).then(() => new Promise<void>(
+                      (resolve) => {
+                        if (pc.iceGatheringState === 'complete') resolve();
+                        else {
+                            function checkState() {
+                                if (pc.iceGatheringState === 'complete') {
+                                    pc.removeEventListener('icegatheringstatechange', checkState);
+                                    resolve();
+                                }
                             }
+                            pc.addEventListener('icegatheringstatechange', checkState);
                         }
-                        pc.addEventListener('icegatheringstatechange', checkState);
-                    }
-                })
-    ).then(() => {
-        let offer = this.peer.localDescription;
-        if (offer !== null) {
-          const socket = new WebSocket(environment.WEB_RTC);
-          return new Promise<string>((res, rej) => {
-            socket.addEventListener("message", (event) => {
-              const wsMessage: string = event.data
-              if (wsMessage.startsWith("1-")) {
-                socket.send(JSON.stringify({
-                  sdp: offer.sdp,
-                  type: offer.type,
-                  video_transform: 'edges' // TODO - Change in the future if necessary
-                }));
-              } else if (wsMessage.startsWith("2-")){
-                const remaining = wsMessage.slice(2)
-                this.message = `Waiting for an WebRTC connection. ${remaining} users ahead in the queue.`
-              } else {
-                res(wsMessage);
-              }
-            });
-            socket.addEventListener("close", (event) => {
-              console.log(event)
-              rej(event)
-            });
-          })
-        }
-        throw new Error("Empty Offer");
-    }).then((answer) => {
-        const parsedAnswer = JSON.parse(answer);
+                    })
+        ).then(() => {
+            let offer = this.peer.localDescription;
+            if (offer !== null) {
+              console.log("Sending Offer");
+              socket.send(JSON.stringify({
+                sdp: offer.sdp,
+                type: offer.type,
+                video_transform: 'edges' 
+              }));
+            } else {
+              throw new Error("Empty Offer");
+            }
+        }).catch((error) => {
+          console.log(error);
+            this.onStop();
+            this.message = "Error while generating RTC peer...";
+    
+        });
+      } else {
+        const parsedAnswer = JSON.parse(wsMessage);
+        const pc = this.peer;
         console.log("Answer Description", parsedAnswer)
         if (pc) pc.setRemoteDescription(parsedAnswer);
-    }).catch((error) => {
-        this.onStop();
-        if (error instanceof CloseEvent) {
-          if (error.wasClean) this.message = "Maximum Connection Reached. Try later.";
-          else this.message = "Signaling Server not Available.";
-        }
-          
-        else this.message = "Error while generating RTC peer...";
-
+      }
     });
+
+    socket.addEventListener("close", (event) => {
+      console.log("closing", event);
+      if (event instanceof CloseEvent) {
+        if (event.reason === "Maximum Websocket Connection Reached") {
+          this.onStop();
+          this.message = "Maximum Connection Reached. Try later.";
+        } else if (!event.wasClean){
+          this.onStop();
+          this.message = "Signaling Server not Available.";
+        }
+      }
+    });
+
   }
 
   public onStop() {
@@ -193,7 +197,7 @@ export class OpenCVComponent implements OnInit{
 
     const pc = this.peer;
 
-    if (pc) {
+    if (pc && !(pc.iceConnectionState == 'disconnected')) {
         pc.getTransceivers().forEach((transceiver) => {
           if (transceiver && transceiver.sender) transceiver.stop();  
         });
