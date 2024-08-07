@@ -1,7 +1,8 @@
 
 <h1 class="mainTitle"> Echart Plots </h1>
 
-<div [hidden]="!available" echarts [options]="options" [autoResize]="true" class="demo-chart"></div>
+<div [hidden]="!available" echarts [options]="lineChartOptions" [loading]="loading" [loadingOpts]="loadingOpts" [autoResize]="true" class="demo-chart"></div>
+<div [hidden]="!available" echarts [options]="pieChartOptions" [loading]="loading" [loadingOpts]="loadingOpts" [autoResize]="true" class="demo-chart"></div>
 <div class="secondaryTitle" [hidden]="available"> FastAPI Not Available :(</div>
 <div class="powered">
     <h2 class="powered-by"> Powered By</h2> 
