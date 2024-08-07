@@ -99,7 +99,11 @@ export class OpenCVComponent implements OnInit{
                 clearInterval(intervalId);
                 this.onStop();
                 this.message = "WebRTC Connection Closed";
-              } 
+              };
+              if (this.peer.iceConnectionState == 'closed') {
+                clearInterval(intervalId);
+                this.message = "Ready to start WebRTC connection!";
+              }
           }, 1000);
         }
       },
