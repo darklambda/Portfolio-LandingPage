@@ -2,41 +2,51 @@
 
 <div class="container">
 
-    <div *ngIf="webcamAvailable && !permissionsDenied">
-        <div class="canvas">
-            <div [hidden]="streamAvailable" class="video">
-                <p *ngIf="!working" class="no-video-message">
-                    No Video Available
-                </p>
-                <mat-spinner *ngIf="working" style="margin-left: auto; margin-right: auto;"></mat-spinner>
-            </div>
-            <video [hidden]="!streamAvailable" class="video" id="video" autoplay playsinline></video>
+  @if (webcamAvailable && !permissionsDenied) {
+    <div>
+      <div class="canvas">
+        <div [hidden]="streamAvailable" class="video">
+          @if (!working) {
+            <p class="no-video-message">
+              No Video Available
+            </p>
+          }
+          @if (working) {
+            <mat-spinner style="margin-left: auto; margin-right: auto;"></mat-spinner>
+          }
         </div>
-        <div class="controls">
-            <div class="row-container">
-                <button mat-stroked-button class="custom-button" [hidden]="!start" (click)="onStart()">Start</button>                <button mat-stroked-button class="custom-button" [hidden]="start" (click)="onStop()">Stop</button>
-            </div>
-            <div class="message-container">
-                <p> {{message}} </p>
-            </div>
+        <video [hidden]="!streamAvailable" class="video" id="video" autoplay playsinline></video>
+      </div>
+      <div class="controls">
+        <div class="row-container">
+          <button mat-stroked-button class="custom-button" [hidden]="!start" (click)="onStart()">Start</button>                <button mat-stroked-button class="custom-button" [hidden]="start" (click)="onStop()">Stop</button>
         </div>
+        <div class="message-container">
+          <p> {{message}} </p>
+        </div>
+      </div>
     </div>
+  }
 
-    <div class="error-message" *ngIf="permissionsDenied">
-        <p class="paragraph-error"> Permissions denied. <br> Refresh webpage and try again. </p> 
+  @if (permissionsDenied) {
+    <div class="error-message">
+      <p class="paragraph-error"> Permissions denied. <br> Refresh webpage and try again. </p>
     </div>
+  }
 
-    <div class="error-message" *ngIf="!webcamAvailable">
-        No webcam available
+  @if (!webcamAvailable) {
+    <div class="error-message">
+      No webcam available
     </div>
+  }
 
-    <div class="powered">
-        <h2 class="powered-by"> Powered By</h2> 
-        <div class="icons-wrapper"> 
-            <img class="logo" src="/assets/Images/docker-logo.webp"/>
-            <img class="logo" src="/assets/Images/webrtc-logo.webp"/>
-            <img class="logo" src="/assets/Images/opencv-logo.webp"/>
-        </div> 
+  <div class="powered">
+    <h2 class="powered-by"> Powered By</h2>
+    <div class="icons-wrapper">
+      <img class="logo" src="/assets/Images/docker-logo.webp"/>
+      <img class="logo" src="/assets/Images/webrtc-logo.webp"/>
+      <img class="logo" src="/assets/Images/opencv-logo.webp"/>
     </div>
+  </div>
 
 </div>

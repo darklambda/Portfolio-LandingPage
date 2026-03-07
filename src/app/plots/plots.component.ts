@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import type { EChartsOption } from 'echarts';
-import { CommonModule } from '@angular/common';
+
 import { NgxEchartsDirective, provideEcharts } from 'ngx-echarts';
 import { HttpService } from '../http.service';
 
 
 @Component({
-  selector: 'app-plots',
-  standalone: true,
-  imports: [CommonModule, NgxEchartsDirective],
-  templateUrl: './plots.component.html',
-  styleUrl: './plots.component.css',
-  providers: [
-    provideEcharts(),
-  ]
+    selector: 'app-plots',
+    imports: [NgxEchartsDirective],
+    templateUrl: './plots.component.html',
+    styleUrl: './plots.component.css',
+    providers: [
+        provideEcharts(),
+    ]
 })
 export class PlotsComponent implements OnInit {
 

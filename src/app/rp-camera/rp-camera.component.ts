@@ -4,11 +4,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { PerspectiveCamera, Vector3 } from 'three';
 
 @Component({
-  selector: 'app-rp-camera',
-  standalone: true,
-  imports: [StlModelViewerComponent, MatButtonModule],
-  templateUrl: './rp-camera.component.html',
-  styleUrl: './rp-camera.component.css'
+    selector: 'app-rp-camera',
+    imports: [StlModelViewerComponent, MatButtonModule],
+    templateUrl: './rp-camera.component.html',
+    styleUrl: './rp-camera.component.css'
 })
 export class RPCameraComponent {
 

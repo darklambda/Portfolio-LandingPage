@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { NgIf } from '@angular/common';
+
 import { environment } from '../../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -7,11 +7,10 @@ import { NavigationStart, Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-open-cv',
-  standalone: true,
-  imports: [NgIf, MatButtonModule, MatProgressSpinnerModule],
-  templateUrl: './open-cv.component.html',
-  styleUrl: './open-cv.component.css'
+    selector: 'app-open-cv',
+    imports: [MatButtonModule, MatProgressSpinnerModule],
+    templateUrl: './open-cv.component.html',
+    styleUrl: './open-cv.component.css'
 })
 export class OpenCVComponent implements OnInit{
 
