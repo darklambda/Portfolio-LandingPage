@@ -7,6 +7,7 @@ on:
       - '.github/workflows/main.yml'
       - 'angular.json'
       - 'package.json'
+      - 'package-lock.json'
 jobs:
 
   build:
