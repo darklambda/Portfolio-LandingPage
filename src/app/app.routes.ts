@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
-import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/home.component';
 import { OldLayoutComponent } from './v1/old-layout/old-layout.component';
 import { OldHomeComponent } from './v1/old-home/old-home.component';
 //import { NotFoundComponent } from './not-found/not-found.component';
@@ -11,7 +11,7 @@ import { RPCameraComponent } from './v1/rp-camera/rp-camera.component';
 import { OpenCVComponent } from './v1/open-cv/open-cv.component';
 
 export const routes: Routes = [
-    {path: "", title: "Home", component: HomeComponent},
+    //{path: "", title: "Home", component: HomeComponent},
     {path: "v1", component: OldLayoutComponent, children: [
         {path: "", title: "OldHome", component: OldHomeComponent},
         {path: "projects", title: "Projects", component: ProjectsComponent},

@@ -1,12 +1,13 @@
 .container {
     height: 100%;
+    margin: auto;
     background-color: #fff;
     background: radial-gradient(circle at center, #fff 0%, #f8f8f8 75%, #ebebeb 100%);
     color: #222;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
-    margin: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
