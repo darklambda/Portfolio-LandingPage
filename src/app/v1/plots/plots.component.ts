@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import type { EChartsOption } from 'echarts';
 
-import { NgxEchartsDirective, provideEcharts } from 'ngx-echarts';
-import { HttpService } from '../http.service';
+import { NgxEchartsDirective, provideEchartsCore  } from 'ngx-echarts';
+import * as echarts from 'echarts/core';
+import type { EChartsOption } from 'echarts/types/dist/shared';
+import { HttpService } from '@/app/http.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { HttpService } from '../http.service';
     templateUrl: './plots.component.html',
     styleUrl: './plots.component.css',
     providers: [
-        provideEcharts(),
+        provideEchartsCore({ echarts }),
     ]
 })
 export class PlotsComponent implements OnInit {

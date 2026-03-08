@@ -1,0 +1,26 @@
+
+<h1 class="mainTitle">Gonzalo A. Oberreuter Álvarez</h1>
+<h2 class="secondaryTitle">Informatics Civil Engineer</h2>
+
+<div class="mainContainer">
+    <p class="paragraph">
+        Hey! I'm Gonzalo Oberreuter, a Software Engineer and Master student from Chile, currently based in Passau, Germany.
+    </p>
+    <p class="paragraph">
+        Throughout my studies, professional opportunities and personal projects, I've got plenty of hands-on experience in areas such as Software Engineering, Data Science, Image Processing, Algorithms, among many more. My passion for these fields is mainly guided by my eagerness to learn and the infinite possibilities, that the different Computer Sciences present, for the improvement of processes and current technologies towards a better future.
+    </p>
+    <p class="paragraph">
+        Feel free to drop an email!
+    </p>
+    <br>
+    <div    [matTooltipDisabled]="true"
+            #myTooltip="matTooltip" 
+            matTooltip="Email Copied!"
+            matTooltipPosition="above"
+            (click)="displayTooltip()"
+            [cdkCopyToClipboard]="email"
+            class="emailContainer">
+        <button mat-stroked-button class="email"> {{email}} <i class="fa fa-copy envelope dis"></i></button> 
+</div>
+
+</div>

@@ -1,0 +1,93 @@
+.mainContainer {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vw;
+    width: 50vw;
+}
+
+.email {
+    background-color: white;
+    border-radius: 35px;
+    padding: 1.5vw;
+    font-size: clamp(0.9375rem, 0.9375rem + 0.625vw, 1.5625rem);
+}
+
+.emailContainer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+}
+
+.photoDesktop {
+    border-radius: 10%;
+    width: 100%
+}
+
+.paragraph {
+    padding: auto;
+    font-size: clamp(0.9375rem, 0.1339rem + 1.4286vw, 1.5625rem); /*15-25 (900-1600)*/
+    line-height:1;
+    color: white;
+    text-align: justify;
+}
+
+.mainTitle{
+    font-family: 'Lato-Bold';
+    color: white;
+    margin: auto;
+    width: 100%;
+    padding-top: 3vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    font-size: clamp(2.1875rem, 1.3839rem + 1.4286vw, 2.8125rem); /*35-45 (900-1600)*/
+}
+
+.secondaryTitle{
+    font-family: 'Lato-Light';
+    color: #B9CBD8;
+    margin: auto;
+    width: 100%;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    font-size: clamp(1.5625rem, 0.7589rem + 1.4286vw, 2.1875rem); /*25-35 (900-1600)*/
+}
+
+@media screen and (max-width: 900px) {
+
+    .mainTitle {
+        font-size: clamp(1.5625rem, 1.5625rem + 1.1111vw, 2.1875rem); /*25-35 (0-900)*/
+    }
+
+    .secondaryTitle {
+        font-size: clamp(0.9375rem, 0.9375rem + 1.1111vw, 1.5625rem); /*15-25 (0-900)*/
+    }
+
+    .mainContainer {
+        padding: 3vw;
+        display: block;
+        width: 90vw;
+    }
+
+    .paragraph {
+        padding: 1vw;
+        font-size: clamp(0.9375rem, 0.9375rem + 0.5556vw, 1.25rem); /*15-20 (0-900)*/
+        line-height:1;
+        color: white;
+        text-align: justify;
+    }
+
+    .photoSmartphone {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        border-radius: 10%;
+        width: 90vw
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .dis {
+        display: none;
+    }
+}

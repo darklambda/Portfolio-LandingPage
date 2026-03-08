@@ -1,0 +1,104 @@
+.old-container {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scrollbar-gutter: stable both-edges;
+    background-color: #16537e;
+}
+
+.old-container::-webkit-scrollbar {
+    display: none;
+}
+
+.old-container { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('/assets/Fonts/Lato/Lato-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('/assets/Fonts/Lato/Lato-Light.ttf');
+}
+
+.container {
+    margin-top: 10dvh;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 80dvh;
+    height: auto;
+}
+
+.footer {
+    background-color: #0f3a58;
+    height: 10dvh;
+    width: 100vw;
+}
+
+.mat-toolbar {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 100;
+    height: 10dvh;
+    background-color: #0f3a58;
+    width: 100vw;
+}
+
+
+.centered-left {
+    font-size:  clamp(0px, 5vw, 30px);
+    width: 20vw;
+    margin-left: auto !important;
+    margin-right: 1vw !important
+}
+.centered-right {
+    font-size:  clamp(0px, 5vw, 30px);
+    width: 20vw;
+    margin-right: auto !important;
+    margin-left: 1vw !important
+}
+.centered {
+    font-size:  clamp(0px, 5vw, 30px);
+    width: 20vw;
+    margin: auto !important
+}
+
+.social {
+    text-align: center;
+    color: white;
+}
+
+.fa{
+    cursor: pointer;
+    margin-top: 2dvh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+@media screen and (min-width: 900px) {
+    .mat-toolbar {
+        margin: auto;
+        width: 60vw
+    }
+
+    .footer {
+        margin: auto;
+        width: 60vw;
+    }
+
+    .centered {
+        font-size:  clamp(30px, 2vw, 50px);
+    }
+
+    .centered-left {
+        font-size:  clamp(30px, 2vw, 50px);
+    }
+
+    .centered-right {
+        font-size:  clamp(30px, 2vw, 50px);
+    }
+
+}
